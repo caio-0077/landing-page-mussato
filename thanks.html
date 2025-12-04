@@ -48,22 +48,12 @@
     <!-- CRITICAL CSS inline aqui (se quiser, faço para você) -->
 
     <!-- CSS (preload + load assíncrono) -->
-    <link
-      rel="preload"
-      href="styles.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <link
-      rel="preload"
-      href="reviews.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="styles.css" />
-      <link rel="stylesheet" href="reviews.css" />
-    </noscript>
+    <!-- CSS PRINCIPAL -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preload" href="reviews.css" as="style" />
+    <link rel="stylesheet" href="reviews.css" />
 
     <!-- MANIFEST -->
     <link rel="manifest" href="/manifest.webmanifest" />
