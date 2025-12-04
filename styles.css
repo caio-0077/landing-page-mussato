@@ -100,6 +100,28 @@ header {
   justify-content: flex-start;
 }
 
+.container-discount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 3rem 3rem;
+  background-color: gainsboro;
+}
+
+.content-discount {
+  gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: var(--framing);
+  display: flex !important;
+}
+
+.text-discount {
+  font-size: 12px;
+}
+
 .call-us-content span {
   font-size: 14px;
   font-weight: bold;
@@ -269,9 +291,11 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background: 
-    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)),
-    url("public/imgs/06.jpg") center/cover no-repeat; 
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("public/imgs/06.jpg") center/cover no-repeat;
 }
 
 .container-thanks {
@@ -284,9 +308,8 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background: 
-    linear-gradient(rgba(132, 8, 8, 0.8), rgba(132, 8, 8, 0.7)),
-    url("public/imgs/06.jpg") center/cover no-repeat; 
+  background: linear-gradient(rgba(132, 8, 8, 0.8), rgba(132, 8, 8, 0.7)),
+    url("public/imgs/06.jpg") center/cover no-repeat;
 }
 
 .content-home {
@@ -607,6 +630,19 @@ footer {
 
   .btn-default-b {
     padding: 1rem 2rem;
+  }
+
+   .container-discount {
+    padding: 2rem 1rem;
+  }
+
+  .content-discount {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .text-discount {
+    font-size: 10px;
   }
 
   .footer-links {
