@@ -1,0 +1,199 @@
+.content-reviews {
+  max-width: 1300px;
+  width: 100%;
+  display: grid !important;
+  gap: 0.5rem;
+  grid-template-columns: repeat(4, 1fr) !important;
+  align-items: stretch !important;
+}
+
+@media (max-width: 1024px) {
+  .content-reviews {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .description {
+    font-size: 14px;
+  }
+
+  .content-reviews {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.card-content {
+  height: auto;
+  display: flex;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background-color: white;
+  flex-direction: column;
+  gap: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.card-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 60px rgba(0, 0, 0, 0.08);
+}
+
+.perfil {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #12263a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.card-head {
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.col-name {
+  flex-direction: column;
+  display: flex;
+  line-height: 1.25;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ago {
+  font-size: 0.85rem;
+  color: #667085;
+}
+
+.description {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #263238;
+}
+
+/* rodapé do card com "Read more" */
+.card-footer {
+  margin-top: 0.5rem;
+}
+
+.read-more {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  cursor: pointer;
+}
+
+.ex-google {
+  color: #000000;
+  height: auto;
+  grid-column: span 1;
+  gap: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.ex-title {
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.link {
+  color: #000000;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  width: 22px;
+  height: 22px;
+}
+
+.crs-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  padding: 1rem;
+}
+
+.crs-modal-backdrop.crs-open {
+  display: flex;
+}
+
+.crs-modal {
+  max-width: 600px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 0.9rem;
+  box-shadow: 0 16px 80px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.crs-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.crs-modal-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.crs-modal-ago {
+  font-size: 0.85rem;
+  color: #667085;
+}
+
+.crs-modal-close {
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.crs-modal-body {
+  font-size: 0.95rem;
+  color: #263238;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}

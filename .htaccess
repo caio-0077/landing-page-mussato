@@ -1,0 +1,55 @@
+# Desativar listagem de diretórios  
+Options -Indexes
+
+# Proteger tipos de conteúdo
+Header set X-Content-Type-Options "nosniff"
+
+# Evitar que o site seja carregado em iframe de outros domínios
+Header set X-Frame-Options "SAMEORIGIN"
+
+# Pequena proteção XSS
+Header set X-XSS-Protection "1; mode=block"
+
+#######################################
+# PERFORMANCE – COMPRESSÃO + CACHE
+#######################################
+
+# Compressão GZIP (HTML, CSS, JS, JSON, etc.)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml
+  AddOutputFilterByType DEFLATE text/css text/javascript application/javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+</IfModule>
+
+# Cache de navegador para arquivos estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # CSS e JS – 30 dias
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType text/javascript "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+
+  # Imagens – 90 dias
+  ExpiresByType image/jpeg "access plus 90 days"
+  ExpiresByType image/png  "access plus 90 days"
+  ExpiresByType image/gif  "access plus 90 days"
+  ExpiresByType image/webp "access plus 90 days"
+  ExpiresByType image/svg+xml "access plus 90 days"
+  ExpiresByType image/x-icon "access plus 90 days"
+
+  # Fontes – 90 dias
+  ExpiresByType font/woff "access plus 90 days"
+  ExpiresByType font/woff2 "access plus 90 days"
+  ExpiresByType application/font-woff2 "access plus 90 days"
+
+  # Padrão
+  ExpiresDefault "access plus 7 days"
+</IfModule>
+
+# Cabeçalho Cache-Control extra (ajuda inclusive com CDN)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|png|jpe?g|gif|webp|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+  </FilesMatch>
+</IfModule>
