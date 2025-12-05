@@ -58,8 +58,6 @@
 
     <meta name="theme-color" content="#ff6a00" />
 
-    <!-- CRITICAL CSS inline aqui (se quiser, faço para você) -->
-
     <!-- CSS (preload + load assíncrono) -->
     <!-- CSS PRINCIPAL -->
     <link rel="preload" href="styles.css" as="style" />
@@ -71,9 +69,6 @@
     <!-- MANIFEST -->
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/favicon-32.png" />
-
-    <!-- Removido Google Fonts (usar fontes locais) -->
-    <!-- Removido Font Awesome (usar SVG inline) -->
   </head>
 
   <body>
@@ -116,7 +111,7 @@
 
       <div class="container-discount">
         <div class="content-discount">
-          <div style="width: 100%;">
+          <div style="width: 100%">
             <p class="text-discount">
               <b>Projects Over $100,000 – 5% Labor and Materials Discount.</b>
               The discount applies only to: • Work performed by Mussato
@@ -125,7 +120,7 @@
               purchased specifically for the job.
             </p>
           </div>
-          <div style="width: 100%;">
+          <div style="width: 100%">
             <p class="text-discount">
               <b>The Discount DOES NOT Apply To:</b> • Project Management Fee /
               General Contracting Fee • Overhead & Profit • Permit fees •
@@ -508,6 +503,40 @@
       </div>
     </footer>
 
+    <!-- MODAL DO FORMULÁRIO 10% OFF -->
+    <div
+      class="lead-modal-backdrop"
+      id="leadModalBackdrop"
+      aria-hidden="true"
+      style="display: none"
+    >
+      <div
+        class="lead-modal"
+        aria-modal="true"
+        aria-labelledby="leadModalTitle"
+      >
+        <button
+          class="lead-modal-close"
+          id="leadModalClose"
+          aria-label="Close form"
+        >
+          &times;
+        </button>
+        <div class="lead-modal-body">
+          <!-- CÓDIGO DO FORM QUE VOCÊ PEDIU -->
+          <iframe
+            src="https://api.escodigitalgroup.com/widget/survey/bEAUYFMSw4RPX2bHZ4im"
+            style="border: none; width: 100%"
+            id="bEAUYFMSw4RPX2bHZ4im"
+            title="survey"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT DO FORM -->
+    <script src="https://api.escodigitalgroup.com/js/form_embed.js"></script>
+
     <script>
       const reviews = [
         {
@@ -573,7 +602,7 @@
         return `hsl(${h} ${s}% ${l}%)`;
       };
 
-      // Elementos do modal
+      // Elementos do modal de reviews
       const modalBackdrop = document.getElementById("reviewModalBackdrop");
       const modalName = document.getElementById("modalName");
       const modalAgo = document.getElementById("modalAgo");
@@ -671,6 +700,59 @@
       } else {
         lazyIframes.forEach(loadIframe);
       }
+
+      /* --------- MODAL 10% OFF (ABRE EM 5s E NO CLIQUE DOS BOTÕES) --------- */
+
+      const leadModalBackdrop = document.getElementById("leadModalBackdrop");
+      const leadModalClose = document.getElementById("leadModalClose");
+      const leadButtons = document.querySelectorAll(
+        ".btn-default-b, .btn-default-footer-mobile"
+      );
+
+      let leadModalTimer = null;
+
+      const openLeadModal = () => {
+        if (!leadModalBackdrop) return;
+        if (leadModalBackdrop.style.display === "flex") return;
+
+        leadModalBackdrop.style.display = "flex";
+        leadModalBackdrop.setAttribute("aria-hidden", "false");
+        document.body.classList.add("no-scroll"); // trava scroll
+
+        if (leadModalTimer) {
+          clearTimeout(leadModalTimer);
+          leadModalTimer = null;
+        }
+      };
+
+      const closeLeadModal = () => {
+        if (!leadModalBackdrop) return;
+        leadModalBackdrop.style.display = "none";
+        leadModalBackdrop.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("no-scroll"); // libera scroll
+      };
+
+      // Fecha no X
+      if (leadModalClose) {
+        leadModalClose.addEventListener("click", closeLeadModal);
+      }
+
+      // Fecha clicando fora do conteúdo
+      if (leadModalBackdrop) {
+        leadModalBackdrop.addEventListener("click", (e) => {
+          if (e.target === leadModalBackdrop) {
+            closeLeadModal();
+          }
+        });
+      }
+
+      // Abre ao clicar nos botões "Get My 10% OFF"
+      leadButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openLeadModal();
+        });
+      });
     </script>
   </body>
 </html>
