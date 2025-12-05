@@ -295,7 +295,7 @@ footer {
       rgba(255, 255, 255, 0.8),
       rgba(255, 255, 255, 0.7)
     ),
-    url("public/imgs/06.jpg") center/cover no-repeat;
+    url("public/imgs/06.webp") center/cover no-repeat;
 }
 
 .container-thanks {
@@ -309,7 +309,7 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   background: linear-gradient(rgba(132, 8, 8, 0.8), rgba(132, 8, 8, 0.7)),
-    url("public/imgs/06.jpg") center/cover no-repeat;
+    url("public/imgs/06.webp") center/cover no-repeat;
 }
 
 .content-home {
@@ -488,6 +488,7 @@ footer {
 }
 
 .partners-track img {
+  width: 7rem;
   height: 7rem;
   object-fit: contain;
   filter: brightness(1);
@@ -689,6 +690,7 @@ footer {
   }
 
   .partners-track img {
+    width: 6rem;
     height: 6rem;
   }
 
