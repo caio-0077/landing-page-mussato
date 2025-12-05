@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://mussatobuilding.com/sitemap.xml
+Sitemap: https://fy.mussatobuilding.com/sitemap.xml
