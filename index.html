@@ -4,27 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s);
-        j.async = true;
-        j.src = "https://api.mussatobuilding.com/2z3vznspoyjr.js?" + i;
-        f.parentNode.insertBefore(j, f);
-      })(
-        window,
-        document,
-        "script",
-        "dataLayer",
-        "8p=Gw5EKCQ%2BQzElIClWMik0XARXS0FBVQoUTwcMHAMSGhUQHxADFBoAHVwJFgI%3D"
-      );
-    </script>
-
     <title>Mussato Building Group Inc.</title>
 
     <!-- SEO -->
@@ -77,17 +56,49 @@
 
     <meta name="theme-color" content="#ff6a00" />
 
-    <!-- CSS (preload + load assíncrono) -->
+    <!-- Preload da imagem principal (LCP) usada no background da HERO -->
+    <link
+      rel="preload"
+      href="public/imgs/06.webp"
+      as="image"
+      fetchpriority="high"
+    />
+
     <!-- CSS PRINCIPAL -->
     <link rel="preload" href="styles.css" as="style" />
     <link rel="stylesheet" href="styles.css" />
 
+    <!-- CSS de reviews (se puder, junte depois em styles.css) -->
     <link rel="preload" href="reviews.css" as="style" />
     <link rel="stylesheet" href="reviews.css" />
 
     <!-- MANIFEST -->
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/public/favicon-32.png" />
+
+    <!-- Google Tag Manager – carregado APÓS o load para não travar o início -->
+    <script>
+      window.addEventListener("load", function () {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({
+            "gtm.start": new Date().getTime(),
+            event: "gtm.js",
+          });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://api.mussatobuilding.com/2z3vznspoyjr.js?" + i;
+          f.parentNode.insertBefore(j, f);
+        })(
+          window,
+          document,
+          "script",
+          "dataLayer",
+          "8p=Gw5EKCQ%2BQzElIClWMik0XARXS0FBVQoUTwcMHAMSGhUQHxADFBoAHVwJFgI%3D"
+        );
+      });
+    </script>
   </head>
 
   <body>
@@ -103,6 +114,9 @@
             <img
               src="public/assets/logo.webp"
               alt="Mussato Building Group Inc. company logo"
+              width="180"
+              height="60"
+              decoding="async"
             />
           </div>
           <div class="header-call">
@@ -206,6 +220,8 @@
                 src="public/assets/five-stars.webp"
                 loading="lazy"
                 decoding="async"
+                width="200"
+                height="40"
               />
             </div>
             <span>
@@ -342,6 +358,8 @@
                 alt="Escudo"
                 loading="lazy"
                 decoding="async"
+                width="40"
+                height="40"
               />
               <span class="title-insured">Insured</span>
             </div>
@@ -370,95 +388,125 @@
               class="gallery"
               aria-label="Construction and remodeling project gallery"
             >
-              <!-- Suas imagens de portfólio -->
+              <!-- Imagens de portfólio -->
               <img
                 src="public/imgs/01.webp"
                 alt="Construction project 1"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/02.webp"
                 alt="Construction project 2"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/03.webp"
                 alt="Construction project 3"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/04.webp"
                 alt="Construction project 4"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/05.webp"
                 alt="Construction project 5"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/06.webp"
                 alt="Construction project 6"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/07.webp"
                 alt="Construction project 7"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/08.webp"
                 alt="Construction project 8"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/09.webp"
                 alt="Construction project 9"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/10.webp"
                 alt="Construction project 10"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/11.webp"
                 alt="Construction project 11"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/12.webp"
                 alt="Construction project 12"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/13.webp"
                 alt="Construction project 13"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/14.webp"
                 alt="Construction project 14"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
               <img
                 src="public/imgs/15.webp"
                 alt="Construction project 15"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="800"
               />
             </section>
           </main>
@@ -478,6 +526,8 @@
             alt="Mussato Building Group Inc. company logo"
             loading="lazy"
             decoding="async"
+            width="180"
+            height="60"
           />
         </div>
         <div class="contact-info">
@@ -525,6 +575,7 @@
             style="border: none; width: 100%"
             id="bEAUYFMSw4RPX2bHZ4im"
             title="survey"
+            loading="lazy"
           ></iframe>
         </div>
       </div>
@@ -644,8 +695,8 @@
       const modalName = document.getElementById("modalName");
       const modalAgo = document.getElementById("modalAgo");
       const modalText = document.getElementById("modalText");
-      const modalCloseBtn
-        = document.getElementById("modalCloseBtn");
+      const modalCloseBtn =
+        document.getElementById("modalCloseBtn");
 
       const openModal = (name, ago, text) => {
         modalName.textContent = name;

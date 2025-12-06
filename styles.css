@@ -760,6 +760,12 @@ footer {
   overflow-y: auto;
 }
 
+.gallery img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .lead-modal-close {
   position: absolute;
   top: 0.75rem;
