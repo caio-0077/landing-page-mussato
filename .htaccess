@@ -5,14 +5,17 @@
 # Desativar listagem de diretórios
 Options -Indexes
 
-# Proteger tipos de conteúdo
-Header set X-Content-Type-Options "nosniff"
+# Cabeçalhos de segurança
+<IfModule mod_headers.c>
+  # Proteger tipos de conteúdo
+  Header set X-Content-Type-Options "nosniff"
 
-# Evitar que o site seja carregado em iframe de outros domínios
-Header set X-Frame-Options "SAMEORIGIN"
+  # Evitar que o site seja carregado em iframe de outros domínios
+  Header set X-Frame-Options "SAMEORIGIN"
 
-# Pequena proteção XSS
-Header set X-XSS-Protection "1; mode=block"
+  # Pequena proteção XSS
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
 
 
 #######################################
@@ -23,7 +26,7 @@ Header set X-XSS-Protection "1; mode=block"
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml
   AddOutputFilterByType DEFLATE text/css text/javascript application/javascript
-  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE application/json application/xml image/svg+xml
 </IfModule>
 
 # Cache de navegador para arquivos estáticos
@@ -67,5 +70,5 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Se NÃO for arquivo → cair no index.html (SEO-friendly)
+# Se NÃO for arquivo → cair no index.html (SEO-friendly / SPA)
 RewriteRule ^ index.html [L]
