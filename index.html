@@ -530,10 +530,29 @@
       </div>
     </div>
 
-    <!-- SCRIPT DO FORM -->
-    <script src="https://api.escodigitalgroup.com/js/form_embed.js"></script>
+    <!-- REMOVIDO: SCRIPT DO FORM EMBED CARREGADO FIXO -->
+    <!-- <script src="https://api.escodigitalgroup.com/js/form_embed.js"></script> -->
 
     <script>
+      /* ---------- LAZY-LOAD DO SCRIPT form_embed.js ---------- */
+      let formScriptLoaded = false;
+
+      function loadFormScript(callback) {
+        if (formScriptLoaded) {
+          callback && callback();
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = "https://api.escodigitalgroup.com/js/form_embed.js";
+        script.async = true;
+        script.onload = function () {
+          formScriptLoaded = true;
+          callback && callback();
+        };
+        document.body.appendChild(script);
+      }
+
       // Seleciona o iframe do formulário
       const leadIframe = document.getElementById("bEAUYFMSw4RPX2bHZ4im");
 
@@ -555,9 +574,7 @@
           console.warn("Aguardando submissão do formulário...");
         }
       });
-    </script>
 
-    <script>
       const reviews = [
         {
           name: "Jason Clark",
@@ -627,7 +644,8 @@
       const modalName = document.getElementById("modalName");
       const modalAgo = document.getElementById("modalAgo");
       const modalText = document.getElementById("modalText");
-      const modalCloseBtn = document.getElementById("modalCloseBtn");
+      const modalCloseBtn
+        = document.getElementById("modalCloseBtn");
 
       const openModal = (name, ago, text) => {
         modalName.textContent = name;
@@ -721,7 +739,7 @@
         lazyIframes.forEach(loadIframe);
       }
 
-      /* --------- MODAL 10% OFF (ABRE EM 5s E NO CLIQUE DOS BOTÕES) --------- */
+      /* --------- MODAL 10% OFF (ABRE NO CLIQUE DOS BOTÕES) --------- */
 
       const leadModalBackdrop = document.getElementById("leadModalBackdrop");
       const leadModalClose = document.getElementById("leadModalClose");
@@ -743,6 +761,9 @@
           clearTimeout(leadModalTimer);
           leadModalTimer = null;
         }
+
+        // carrega o script do formulário somente quando o modal abrir
+        loadFormScript();
       };
 
       const closeLeadModal = () => {
