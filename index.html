@@ -114,7 +114,6 @@
             <img
               src="public/assets/logo.webp"
               alt="Mussato Building Group Inc. company logo"
-              decoding="async"
             />
           </div>
           <div class="header-call">
@@ -522,8 +521,6 @@
           <img
             src="public/assets/logo.webp"
             alt="Mussato Building Group Inc. company logo"
-            loading="lazy"
-            decoding="async"
           />
         </div>
         <div class="contact-info">
@@ -691,8 +688,7 @@
       const modalName = document.getElementById("modalName");
       const modalAgo = document.getElementById("modalAgo");
       const modalText = document.getElementById("modalText");
-      const modalCloseBtn =
-        document.getElementById("modalCloseBtn");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
 
       const openModal = (name, ago, text) => {
         modalName.textContent = name;
